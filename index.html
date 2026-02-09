@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kevin Loving - Personal Website</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #F5F5DC;
+            font-family: 'Times New Roman', Times, serif;
+            color: #000000;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Navigation Bar */
+        .navbar {
+            position: sticky;
+            top: 0;
+            background: #4169E1;
+            border-bottom: 3px ridge #8B8B8B;
+            padding: 0;
+            z-index: 1000;
+            box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .navbar table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .navbar td {
+            padding: 12px 20px;
+            text-align: center;
+            border-right: 2px outset #6495ED;
+        }
+
+        .navbar td:last-child {
+            border-right: none;
+        }
+
+        .navbar a {
+            color: #FFFFFF;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .navbar a:hover {
+            color: #FFD700;
+            text-decoration: underline;
+        }
+
+        /* Main container */
+        .container {
+            width: 90%;
+            max-width: 1000px;
+            margin: 20px auto;
+        }
+
+        /* Header with rotating headshot */
+        .header-table {
+            width: 100%;
+            border: 3px ridge #8B8B8B;
+            background: #FFFFFF;
+            margin-bottom: 20px;
+            border-collapse: collapse;
+        }
+
+        .header-table td {
+            padding: 20px;
+            vertical-align: middle;
+        }
+
+        .header-left {
+            width: 70%;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            color: #4169E1;
+            margin-bottom: 10px;
+            font-family: 'Arial Black', sans-serif;
+        }
+
+        .tagline {
+            font-size: 1.1em;
+            color: #666;
+            font-style: italic;
+        }
+
+        .headshot-cell {
+            width: 30%;
+            text-align: right;
+        }
+
+        .headshot {
+            width: 150px;
+            height: 150px;
+            border: 3px solid #4169E1;
+            border-radius: 50%;
+            background: #DDD;
+            animation: rotate90 3s linear infinite;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+            font-size: 11px;
+            text-align: center;
+            padding: 20px;
+            overflow: hidden;
+            box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+        }
+
+        @keyframes rotate90 {
+            0% { transform: rotate(0deg); }
+            33.33% { transform: rotate(0deg); }
+            33.34% { transform: rotate(90deg); }
+            66.66% { transform: rotate(90deg); }
+            66.67% { transform: rotate(180deg); }
+            99.99% { transform: rotate(180deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Content sections */
+        .section-table {
+            width: 100%;
+            border: 3px ridge #8B8B8B;
+            background: #FFFFFF;
+            margin-bottom: 20px;
+            border-collapse: collapse;
+        }
+
+        .section-table td {
+            padding: 20px;
+        }
+
+        h2 {
+            font-size: 2em;
+            color: #4169E1;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #4169E1;
+            padding-bottom: 5px;
+        }
+
+        h3 {
+            font-size: 1.4em;
+            color: #2F4F4F;
+            margin-top: 15px;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 1em;
+            line-height: 1.6;
+            margin-bottom: 12px;
+        }
+
+        ul {
+            margin-left: 30px;
+            margin-bottom: 15px;
+        }
+
+        li {
+            font-size: 1em;
+            line-height: 1.8;
+            margin-bottom: 8px;
+        }
+
+        /* Links */
+        a {
+            color: #0000EE;
+            text-decoration: underline;
+        }
+
+        a:visited {
+            color: #551A8B;
+        }
+
+        a:hover {
+            color: #FF0000;
+        }
+
+        /* Special elements */
+        .counter {
+            background: #000000;
+            color: #00FF00;
+            font-family: 'Courier New', monospace;
+            padding: 8px 15px;
+            display: inline-block;
+            border: 2px inset #8B8B8B;
+            margin: 10px 0;
+            font-size: 0.9em;
+        }
+
+        .marquee {
+            background: #FFD700;
+            color: #000000;
+            padding: 8px 0;
+            overflow: hidden;
+            white-space: nowrap;
+            border-top: 2px solid #DAA520;
+            border-bottom: 2px solid #DAA520;
+            margin: 20px 0;
+        }
+
+        .marquee-content {
+            display: inline-block;
+            padding-left: 100%;
+            animation: scroll 25s linear infinite;
+            font-weight: bold;
+        }
+
+        @keyframes scroll {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(-100%, 0); }
+        }
+
+        .construction {
+            text-align: center;
+            background: #FFD700;
+            border: 3px ridge #8B8B8B;
+            padding: 10px;
+            margin: 20px 0;
+            font-weight: bold;
+        }
+
+        .construction::before,
+        .construction::after {
+            content: "🚧 ";
+        }
+
+        /* Button styling */
+        .button-table {
+            margin: 15px auto;
+            border-collapse: separate;
+            border-spacing: 10px;
+        }
+
+        .button-table td {
+            padding: 0;
+        }
+
+        .button {
+            background: #E0E0E0;
+            color: #000000;
+            padding: 10px 20px;
+            border: 2px outset #999;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+            cursor: pointer;
+        }
+
+        .button:hover {
+            background: #D0D0D0;
+            border: 2px inset #999;
+        }
+
+        /* Footer */
+        .footer-table {
+            width: 100%;
+            border: 3px ridge #8B8B8B;
+            background: #E8E8E8;
+            margin-top: 20px;
+            border-collapse: collapse;
+        }
+
+        .footer-table td {
+            padding: 15px;
+            text-align: center;
+            font-size: 0.9em;
+            color: #666;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.8em;
+            }
+            
+            .header-table td {
+                display: block;
+                width: 100% !important;
+                text-align: center;
+            }
+            
+            .headshot {
+                margin: 10px auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <div class="navbar">
+        <table>
+            <tr>
+                <td><a href="#about">About</a></td>
+                <td><a href="#education">Education</a></td>
+                <td><a href="#experience">Experience</a></td>
+                <td><a href="#skills">Skills</a></td>
+                <td><a href="#contact">Contact</a></td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Header -->
+        <table class="header-table">
+            <tr>
+                <td class="header-left">
+                    <h1>KEVIN LOVING</h1>
+                    <p class="tagline">Welcome to my personal website!</p>
+                </td>
+                <td class="headshot-cell">
+                    <div class="headshot">
+                        [YOUR HEADSHOT HERE]<br>
+                        Upload headshot.jpg
+                    </div>
+                </td>
+            </tr>
+        </table>
+
+        <!-- Marquee -->
+        <div class="marquee">
+            <div class="marquee-content">
+                ★★★ WELCOME TO MY WEBSITE ★★★ BEST VIEWED IN NETSCAPE NAVIGATOR 4.0 OR INTERNET EXPLORER 5.5 ★★★ 
+                NOW ACCEPTING OPPORTUNITIES ★★★ OPTIMIZED FOR 800x600 RESOLUTION ★★★
+            </div>
+        </div>
+
+        <!-- About Section -->
+        <table class="section-table" id="about">
+            <tr>
+                <td>
+                    <h2>About Me</h2>
+                    <p>
+                        Hello! I'm Kevin Loving, and this is my personal website showcasing my academic 
+                        and professional background. I'm currently seeking opportunities in PhD programs, 
+                        innovative startups, and forward-thinking organizations.
+                    </p>
+                    <p>
+                        This site was designed with a classic early 2000s aesthetic because, let's be honest, 
+                        those were simpler times on the web.
+                    </p>
+                    <div class="counter">
+                        👁️ Visitors: 0001337
+                    </div>
+                </td>
+            </tr>
+        </table>
+
+        <!-- Education Section -->
+        <table class="section-table" id="education">
+            <tr>
+                <td>
+                    <h2>Education</h2>
+                    <h3>University Name</h3>
+                    <p><strong>Degree:</strong> Bachelor of Science in Computer Science (or your degree)</p>
+                    <p><strong>Year:</strong> 20XX - 20XX</p>
+                    <ul>
+                        <li>Relevant coursework and achievements</li>
+                        <li>GPA and honors (if applicable)</li>
+                        <li>Notable projects or research</li>
+                    </ul>
+                </td>
+            </tr>
+        </table>
+
+        <!-- Experience Section -->
+        <table class="section-table" id="experience">
+            <tr>
+                <td>
+                    <h2>Professional Experience</h2>
+                    <h3>Position Title - Company Name</h3>
+                    <p><strong>Duration:</strong> Month Year - Month Year</p>
+                    <ul>
+                        <li>Key responsibility or achievement</li>
+                        <li>Another important contribution</li>
+                        <li>Technical skills utilized</li>
+                    </ul>
+                    
+                    <h3>Previous Position - Company Name</h3>
+                    <p><strong>Duration:</strong> Month Year - Month Year</p>
+                    <ul>
+                        <li>Major accomplishment</li>
+                        <li>Project involvement</li>
+                        <li>Skills developed</li>
+                    </ul>
+                </td>
+            </tr>
+        </table>
+
+        <!-- Skills Section -->
+        <table class="section-table" id="skills">
+            <tr>
+                <td>
+                    <h2>Technical Skills</h2>
+                    <h3>Programming Languages</h3>
+                    <ul>
+                        <li>Python, JavaScript, Java, C++, etc.</li>
+                    </ul>
+                    
+                    <h3>Technologies & Frameworks</h3>
+                    <ul>
+                        <li>React, Node.js, Django, TensorFlow, etc.</li>
+                    </ul>
+                    
+                    <h3>Tools & Platforms</h3>
+                    <ul>
+                        <li>Git, Docker, AWS, Linux, etc.</li>
+                    </ul>
+                </td>
+            </tr>
+        </table>
+
+        <!-- Construction Notice -->
+        <div class="construction">
+            SITE UNDER CONSTRUCTION - UPDATES COMING SOON
+        </div>
+
+        <!-- Contact Section -->
+        <table class="section-table" id="contact">
+            <tr>
+                <td style="text-align: center;">
+                    <h2>Contact Me</h2>
+                    <p>
+                        I'm always interested in hearing about new opportunities and collaborations.
+                        Feel free to reach out!
+                    </p>
+                    <!-- TODO: Update these links with your actual contact information -->
+                    <table class="button-table">
+                        <tr>
+                            <td><a href="mailto:your.email@example.com" class="button">📧 Email Me</a></td>
+                            <td><a href="https://linkedin.com/in/yourprofile" class="button">LinkedIn</a></td>
+                            <td><a href="https://github.com/yourprofile" class="button">GitHub</a></td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+
+        <!-- Footer -->
+        <table class="footer-table">
+            <tr>
+                <td>
+                    <p>© 2026 Kevin Loving | Last Updated: February 2026</p>
+                    <p>Best viewed at 800x600 resolution</p>
+                    <p style="font-size: 0.8em;">
+                        Made with HTML and CSS • No Flash Required (but the spirit lives on)
+                    </p>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <script>
+        // Make marquee loop seamlessly
+        const marqueeContent = document.querySelector('.marquee-content');
+        if (marqueeContent) {
+            marqueeContent.innerHTML = marqueeContent.innerHTML + ' ' + marqueeContent.innerHTML;
+        }
+    </script>
+</body>
+</html>
