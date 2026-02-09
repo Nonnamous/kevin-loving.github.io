@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>✨ KEVIN LOVING - The Future is NOW ✨</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #000000;
+            font-family: 'Comic Sans MS', 'Arial', cursive;
+            color: #00ff00;
+            overflow-x: hidden;
+            background-image: 
+                repeating-linear-gradient(
+                    0deg,
+                    transparent,
+                    transparent 2px,
+                    rgba(0, 255, 0, 0.03) 2px,
+                    rgba(0, 255, 0, 0.03) 4px
+                );
+        }
+
+        /* Animated background stars */
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 1; }
+        }
+
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: #fff;
+            animation: twinkle 3s infinite;
+        }
+
+        /* Header with rotating headshot */
+        header {
+            position: relative;
+            background: linear-gradient(45deg, #ff00ff, #00ffff, #ffff00, #ff00ff);
+            background-size: 400% 400%;
+            animation: gradientShift 3s ease infinite;
+            padding: 20px;
+            border-bottom: 5px solid #00ff00;
+            box-shadow: 0 0 20px #ff00ff;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-size: 3em;
+            color: #ffff00;
+            text-shadow: 
+                3px 3px 0 #ff00ff,
+                6px 6px 0 #00ffff,
+                9px 9px 10px #000;
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .headshot-container {
+            position: relative;
+            width: 150px;
+            height: 150px;
+        }
+
+        .headshot {
+            width: 150px;
+            height: 150px;
+            border: 5px solid #00ff00;
+            border-radius: 50%;
+            background: #333;
+            animation: rotate90 3s linear infinite;
+            box-shadow: 0 0 30px #00ff00;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #00ff00;
+            font-size: 12px;
+            text-align: center;
+            padding: 20px;
+            overflow: hidden;
+        }
+
+        @keyframes rotate90 {
+            0% { transform: rotate(0deg); }
+            33.33% { transform: rotate(0deg); }
+            33.34% { transform: rotate(90deg); }
+            66.66% { transform: rotate(90deg); }
+            66.67% { transform: rotate(180deg); }
+            99.99% { transform: rotate(180deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Marquee text */
+        .marquee {
+            background: #ff00ff;
+            color: #ffff00;
+            padding: 10px 0;
+            overflow: hidden;
+            white-space: nowrap;
+            box-shadow: 0 0 10px #ff00ff;
+        }
+
+        .marquee-content {
+            display: inline-block;
+            padding-left: 100%;
+            animation: scroll 20s linear infinite;
+        }
+
+        @keyframes scroll {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(-100%, 0); }
+        }
+
+        /* Main content */
+        main {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+
+        .section {
+            background: rgba(0, 50, 0, 0.8);
+            border: 3px solid #00ff00;
+            border-radius: 15px;
+            padding: 30px;
+            margin: 30px 0;
+            box-shadow: 
+                0 0 20px #00ff00,
+                inset 0 0 20px rgba(0, 255, 0, 0.1);
+            animation: sectionGlow 2s infinite alternate;
+        }
+
+        @keyframes sectionGlow {
+            0% { box-shadow: 0 0 20px #00ff00, inset 0 0 20px rgba(0, 255, 0, 0.1); }
+            100% { box-shadow: 0 0 30px #00ff00, inset 0 0 30px rgba(0, 255, 0, 0.2); }
+        }
+
+        h2 {
+            font-size: 2.5em;
+            color: #ff00ff;
+            text-shadow: 2px 2px 0 #00ffff, 4px 4px 10px #000;
+            margin-bottom: 20px;
+            text-align: center;
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            0%, 49% { opacity: 1; }
+            50%, 100% { opacity: 0.8; }
+        }
+
+        h3 {
+            font-size: 1.8em;
+            color: #00ffff;
+            text-shadow: 1px 1px 0 #ff00ff;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        p, li {
+            font-size: 1.2em;
+            line-height: 1.8;
+            color: #00ff00;
+            margin-bottom: 15px;
+        }
+
+        ul {
+            list-style: none;
+            padding-left: 20px;
+        }
+
+        li:before {
+            content: "⚡ ";
+            color: #ffff00;
+        }
+
+        /* Blink effect for dramatic text */
+        .dramatic {
+            color: #ffff00;
+            font-weight: bold;
+            animation: dramaticBlink 0.8s infinite;
+        }
+
+        @keyframes dramaticBlink {
+            0%, 49% { opacity: 1; }
+            50%, 100% { opacity: 0.3; }
+        }
+
+        /* Under construction */
+        .construction {
+            text-align: center;
+            margin: 30px 0;
+            font-size: 1.5em;
+            color: #ffff00;
+        }
+
+        .construction::before,
+        .construction::after {
+            content: "🚧 ";
+        }
+
+        /* Hit counter aesthetic */
+        .counter {
+            background: #000;
+            border: 2px solid #00ff00;
+            padding: 10px 20px;
+            display: inline-block;
+            margin: 20px 0;
+            box-shadow: 0 0 10px #00ff00;
+            font-family: 'Courier New', monospace;
+            font-size: 1.5em;
+        }
+
+        /* Flashy button */
+        .button {
+            background: linear-gradient(45deg, #ff00ff, #00ffff);
+            color: #000;
+            padding: 15px 30px;
+            border: 3px solid #ffff00;
+            border-radius: 10px;
+            font-size: 1.3em;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 0 20px #ff00ff;
+            animation: buttonPulse 1s infinite;
+            text-decoration: none;
+            display: inline-block;
+            margin: 10px;
+        }
+
+        @keyframes buttonPulse {
+            0%, 100% { transform: scale(1); box-shadow: 0 0 20px #ff00ff; }
+            50% { transform: scale(1.1); box-shadow: 0 0 40px #ff00ff; }
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 30px;
+            background: rgba(255, 0, 255, 0.2);
+            border-top: 3px solid #ff00ff;
+            margin-top: 50px;
+        }
+
+        footer p {
+            color: #00ffff;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+            
+            .header-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .headshot {
+                width: 120px;
+                height: 120px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Animated stars background -->
+    <div class="stars" id="stars"></div>
+
+    <header>
+        <div class="header-content">
+            <h1>✨ KEVIN LOVING ✨</h1>
+            <div class="headshot-container">
+                <div class="headshot">
+                    [YOUR HEADSHOT HERE]
+                    <br>
+                    Upload headshot.jpg to repo
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="marquee">
+        <div class="marquee-content">
+            ★★★ WELCOME TO THE MOST REVOLUTIONARY PERSONAL WEBSITE OF THE 21ST CENTURY ★★★ 
+            NOW HIRING: PhD Programs, Fortune 500 Companies, and Startup Accelerators ★★★ 
+            THIS SITE IS BEST VIEWED IN NETSCAPE NAVIGATOR 4.0 ★★★
+        </div>
+    </div>
+
+    <main>
+        <div class="section">
+            <h2>🌟 ABOUT THIS LEGENDARY INDIVIDUAL 🌟</h2>
+            <p>
+                Greetings, visitor! You have stumbled upon the <span class="dramatic">MOST EXTRAORDINARY</span> 
+                personal website in the entire digital universe. What you are about to witness is not just a resume—
+                it is a <span class="dramatic">LIFE-ALTERING EXPERIENCE</span> that will forever change your 
+                perception of human potential.
+            </p>
+            <p>
+                I am Kevin Loving, a <span class="dramatic">REVOLUTIONARY GENIUS</span> in the making, 
+                seeking opportunities that are worthy of my <span class="dramatic">UNPRECEDENTED TALENTS</span>. 
+                This webpage was painstakingly crafted using cutting-edge 2002 technology to prove that 
+                I am not just thinking outside the box—I've <span class="dramatic">TRANSCENDED THE VERY CONCEPT OF BOXES</span>.
+            </p>
+            
+            <div class="counter">
+                👁️ VISITORS: 000001337 (definitely real)
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>💼 ACCOMPLISHMENTS OF EPIC PROPORTIONS 💼</h2>
+            
+            <h3>🎓 Academic Excellence Beyond Comprehension</h3>
+            <ul>
+                <li>Graduated from <span class="dramatic">THE UNIVERSITY</span> with a degree that fundamentally changed the fabric of reality</li>
+                <li>Achieved a GPA so high it had to be <span class="dramatic">REDACTED FOR NATIONAL SECURITY</span></li>
+                <li>Wrote a thesis that made professors <span class="dramatic">WEEP WITH JOY</span></li>
+                <li>Attended classes with such dedication that attendance records had to be <span class="dramatic">ARCHIVED IN A MUSEUM</span></li>
+            </ul>
+
+            <h3>💻 Technical Skills That Defy Logic</h3>
+            <ul>
+                <li>Master of HTML (the most advanced programming language known to humanity)</li>
+                <li>Expert in CSS animations that would make <span class="dramatic">WALT DISNEY HIMSELF JEALOUS</span></li>
+                <li>Proficient in JavaScript, Python, Java, C++, and 47 other languages including <span class="dramatic">BINARY</span></li>
+                <li>Built websites so fast that time travel became <span class="dramatic">THEORETICALLY POSSIBLE</span></li>
+                <li>Debugged code with such precision that bugs now <span class="dramatic">FEAR MY PRESENCE</span></li>
+            </ul>
+
+            <h3>🚀 Professional Experience That Rewrites History</h3>
+            <ul>
+                <li>Led projects that increased productivity by <span class="dramatic">9000%</span></li>
+                <li>Mentored junior developers until they became <span class="dramatic">CODING SAMURAI</span></li>
+                <li>Optimized algorithms to run so efficiently that they completed <span class="dramatic">BEFORE THEY STARTED</span></li>
+                <li>Collaborated with teams so effectively that <span class="dramatic">WORLD PEACE</span> briefly occurred</li>
+            </ul>
+
+            <h3>🏆 Awards and Recognition Beyond Mortal Comprehension</h3>
+            <ul>
+                <li>Voted "Most Likely to Change the World" for 12 consecutive years</li>
+                <li>Recipient of the <span class="dramatic">GOLDEN KEYBOARD AWARD</span> for typing speed</li>
+                <li>Nobel Prize nomination pending (they said <span class="dramatic">I'M TOO YOUNG</span>)</li>
+                <li>Featured in Fortune 500 Under 500 (they created this category <span class="dramatic">JUST FOR ME</span>)</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>🎯 WHAT I'M LOOKING FOR 🎯</h2>
+            <p>
+                I am currently accepting offers from ONLY the most elite institutions and organizations:
+            </p>
+            <ul>
+                <li><span class="dramatic">PhD PROGRAMS</span> that are ready to have their research revolutionized</li>
+                <li><span class="dramatic">STARTUPS</span> that want to become the next unicorn (guaranteed)</li>
+                <li><span class="dramatic">ACCELERATORS</span> that can keep up with my velocity</li>
+                <li><span class="dramatic">COMPANIES</span> bold enough to hire a legend in the making</li>
+            </ul>
+            <p>
+                Warning: My presence may cause <span class="dramatic">SPONTANEOUS INNOVATION</span> and 
+                <span class="dramatic">DISRUPTIVE BREAKTHROUGHS</span>. Handle with extreme confidence.
+            </p>
+        </div>
+
+        <div class="construction">
+            SITE PERPETUALLY UNDER CONSTRUCTION BECAUSE EXCELLENCE NEVER RESTS
+        </div>
+
+        <div class="section" style="text-align: center;">
+            <h2>📧 CONTACT ME (IF YOU DARE) 📧</h2>
+            <p>
+                Ready to witness greatness firsthand? Reach out to discuss how I can 
+                <span class="dramatic">TRANSFORM YOUR ORGANIZATION</span> into something legendary.
+            </p>
+            <a href="mailto:your.email@example.com" class="button">📨 EMAIL ME</a>
+            <a href="https://linkedin.com/in/yourprofile" class="button">💼 LINKEDIN</a>
+            <a href="https://github.com/yourprofile" class="button">💻 GITHUB</a>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2026 Kevin Loving | Best Viewed in 800x600 Resolution</p>
+        <p>This site is 100% Flash-free (but your mind will be blown anyway)</p>
+        <p style="font-size: 0.8em; color: #666;">
+            Made with 💚 using HTML, CSS, and an unhealthy amount of nostalgia
+        </p>
+    </footer>
+
+    <script>
+        // Generate random stars
+        const starsContainer = document.getElementById('stars');
+        for (let i = 0; i < 100; i++) {
+            const star = document.createElement('div');
+            star.className = 'star';
+            star.style.left = Math.random() * 100 + '%';
+            star.style.top = Math.random() * 100 + '%';
+            star.style.animationDelay = Math.random() * 3 + 's';
+            starsContainer.appendChild(star);
+        }
+
+        // Make marquee loop seamlessly
+        const marqueeContent = document.querySelector('.marquee-content');
+        marqueeContent.innerHTML = marqueeContent.innerHTML + ' ' + marqueeContent.innerHTML;
+    </script>
+</body>
+</html>
