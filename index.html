@@ -248,19 +248,32 @@
         }
 
         .button {
-            background: #E0E0E0;
-            color: #000000;
-            padding: 10px 20px;
-            border: 2px outset #999;
+            background: linear-gradient(180deg, #FFF8DC 0%, #E0C98F 100%);
+            color: #1B1B1B;
+            padding: 10px 18px;
+            border: 3px outset #C9A227;
             text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 1px;
             font-weight: bold;
+            font-size: 0.9em;
             display: inline-block;
             cursor: pointer;
+            box-shadow: 2px 2px 0 #6B4F1D;
         }
 
         .button:hover {
-            background: #D0D0D0;
-            border: 2px inset #999;
+            background: linear-gradient(180deg, #FFE9A8 0%, #D7B56D 100%);
+            border: 3px inset #C9A227;
+            color: #8B0000;
+        }
+
+        .button-list {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
         }
 
         /* Footer */
@@ -339,85 +352,28 @@
         <!-- About Section -->
         <table class="section-table" id="about">
             <tr>
-                <td>
-                    <h2>About Me</h2>
-                    <p>
-                        Hello! I'm Kevin Loving, and this is my personal website showcasing my academic 
-                        and professional background. I'm currently seeking opportunities in PhD programs, 
-                        innovative startups, and forward-thinking organizations.
-                    </p>
-                    <p>
-                        This site was designed with a classic early 2000s aesthetic because, let's be honest, 
-                        those were simpler times on the web.
-                    </p>
-                    <div class="counter">
-                        👁️ Visitors: 0001337
-                    </div>
-                </td>
+                <td></td>
             </tr>
         </table>
 
         <!-- Education Section -->
         <table class="section-table" id="education">
             <tr>
-                <td>
-                    <h2>Education</h2>
-                    <h3>University Name</h3>
-                    <p><strong>Degree:</strong> Bachelor of Science in Computer Science (or your degree)</p>
-                    <p><strong>Year:</strong> 20XX - 20XX</p>
-                    <ul>
-                        <li>Relevant coursework and achievements</li>
-                        <li>GPA and honors (if applicable)</li>
-                        <li>Notable projects or research</li>
-                    </ul>
-                </td>
+                <td></td>
             </tr>
         </table>
 
         <!-- Experience Section -->
         <table class="section-table" id="experience">
             <tr>
-                <td>
-                    <h2>Professional Experience</h2>
-                    <h3>Position Title - Company Name</h3>
-                    <p><strong>Duration:</strong> Month Year - Month Year</p>
-                    <ul>
-                        <li>Key responsibility or achievement</li>
-                        <li>Another important contribution</li>
-                        <li>Technical skills utilized</li>
-                    </ul>
-                    
-                    <h3>Previous Position - Company Name</h3>
-                    <p><strong>Duration:</strong> Month Year - Month Year</p>
-                    <ul>
-                        <li>Major accomplishment</li>
-                        <li>Project involvement</li>
-                        <li>Skills developed</li>
-                    </ul>
-                </td>
+                <td></td>
             </tr>
         </table>
 
         <!-- Skills Section -->
         <table class="section-table" id="skills">
             <tr>
-                <td>
-                    <h2>Technical Skills</h2>
-                    <h3>Programming Languages</h3>
-                    <ul>
-                        <li>Python, JavaScript, Java, C++, etc.</li>
-                    </ul>
-                    
-                    <h3>Technologies & Frameworks</h3>
-                    <ul>
-                        <li>React, Node.js, Django, TensorFlow, etc.</li>
-                    </ul>
-                    
-                    <h3>Tools & Platforms</h3>
-                    <ul>
-                        <li>Git, Docker, AWS, Linux, etc.</li>
-                    </ul>
-                </td>
+                <td></td>
             </tr>
         </table>
 
@@ -429,21 +385,7 @@
         <!-- Contact Section -->
         <table class="section-table" id="contact">
             <tr>
-                <td style="text-align: center;">
-                    <h2>Contact Me</h2>
-                    <p>
-                        I'm always interested in hearing about new opportunities and collaborations.
-                        Feel free to reach out!
-                    </p>
-                    <!-- TODO: Update these links with your actual contact information -->
-                    <table class="button-table">
-                        <tr>
-                            <td><a href="mailto:your.email@example.com" class="button">📧 Email Me</a></td>
-                            <td><a href="https://linkedin.com/in/yourprofile" class="button">LinkedIn</a></td>
-                            <td><a href="https://github.com/yourprofile" class="button">GitHub</a></td>
-                        </tr>
-                    </table>
-                </td>
+                <td style="text-align: center;"></td>
             </tr>
         </table>
 
@@ -454,7 +396,7 @@
                     <p>© 2026 Kevin Loving | Last Updated: February 2026</p>
                     <p>Best viewed at 800x600 resolution</p>
                     <p style="font-size: 0.8em;">
-                        Made with HTML and CSS • No Flash Required (but the spirit lives on)
+                        Made with HTML and CSS • No Flash Required
                     </p>
                 </td>
             </tr>
@@ -462,6 +404,135 @@
     </div>
 
     <script>
+        function createList(items) {
+            const list = document.createElement('ul');
+            items.forEach((item) => {
+                const li = document.createElement('li');
+                li.textContent = item;
+                list.appendChild(li);
+            });
+            return list;
+        }
+
+        function appendParagraphs(container, paragraphs) {
+            paragraphs.forEach((text) => {
+                const p = document.createElement('p');
+                p.textContent = text;
+                container.appendChild(p);
+            });
+        }
+
+        function renderAbout(section, data) {
+            const cell = section.querySelector('td');
+            cell.innerHTML = `<h2>${data.title}</h2>`;
+            appendParagraphs(cell, data.paragraphs);
+
+            if (data.links?.length) {
+                const linkList = document.createElement('div');
+                linkList.className = 'button-list';
+
+                data.links.forEach((link) => {
+                    const anchor = document.createElement('a');
+                    anchor.href = link.url;
+                    anchor.className = 'button';
+                    anchor.textContent = link.label;
+                    linkList.appendChild(anchor);
+                });
+
+                cell.appendChild(linkList);
+            }
+
+            const counter = document.createElement('div');
+            counter.className = 'counter';
+            counter.textContent = data.counter;
+            cell.appendChild(counter);
+        }
+
+        function renderEducation(section, data) {
+            const cell = section.querySelector('td');
+            cell.innerHTML = `<h2>${data.title}</h2>`;
+
+            data.schools.forEach((school) => {
+                const heading = document.createElement('h3');
+                heading.textContent = school.institution;
+                cell.appendChild(heading);
+
+                const degree = document.createElement('p');
+                const degreeParts = [school.degree];
+                if (school.specialization) degreeParts.push(school.specialization);
+                if (school.minor) degreeParts.push(`Minor: ${school.minor}`);
+                degree.innerHTML = `<strong>Degree:</strong> ${degreeParts.join(' | ')}`;
+                cell.appendChild(degree);
+
+                const details = document.createElement('p');
+                details.innerHTML = `<strong>Year:</strong> ${school.year} | <strong>Location:</strong> ${school.location}`;
+                cell.appendChild(details);
+            });
+        }
+
+        function renderExperience(section, data) {
+            const cell = section.querySelector('td');
+            cell.innerHTML = `<h2>${data.title}</h2>`;
+
+            data.roles.forEach((role) => {
+                const heading = document.createElement('h3');
+                heading.textContent = role.position;
+                cell.appendChild(heading);
+
+                const meta = document.createElement('p');
+                meta.innerHTML = `<strong>Duration:</strong> ${role.duration} | <strong>Location:</strong> ${role.location}`;
+                cell.appendChild(meta);
+
+                cell.appendChild(createList(role.highlights));
+            });
+        }
+
+        function renderSkills(section, data) {
+            const cell = section.querySelector('td');
+            cell.innerHTML = `<h2>${data.title}</h2>`;
+
+            data.categories.forEach((category) => {
+                const heading = document.createElement('h3');
+                heading.textContent = category.name;
+                cell.appendChild(heading);
+                cell.appendChild(createList(category.items));
+            });
+        }
+
+        function renderContact(section, data) {
+            const cell = section.querySelector('td');
+            cell.innerHTML = `<h2>${data.title}</h2>`;
+            appendParagraphs(cell, data.paragraphs);
+
+            const linkList = document.createElement('div');
+            linkList.className = 'button-list';
+
+            data.links.forEach((link) => {
+                const anchor = document.createElement('a');
+                anchor.href = link.url;
+                anchor.className = 'button';
+                anchor.textContent = link.label;
+                anchor.target = '_blank';
+                anchor.rel = 'noreferrer';
+                linkList.appendChild(anchor);
+            });
+
+            cell.appendChild(linkList);
+        }
+
+        fetch('about.json')
+            .then((response) => response.json())
+            .then((data) => {
+                renderAbout(document.getElementById('about'), data.about);
+                renderEducation(document.getElementById('education'), data.education);
+                renderExperience(document.getElementById('experience'), data.experience);
+                renderSkills(document.getElementById('skills'), data.skills);
+                renderContact(document.getElementById('contact'), data.contact);
+            })
+            .catch((error) => {
+                console.error('Failed to load about.json', error);
+            });
+
         // Make marquee loop seamlessly
         const marqueeContent = document.querySelector('.marquee-content');
         if (marqueeContent) {

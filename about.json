@@ -1,0 +1,206 @@
+{
+  "about": {
+    "title": "About Me",
+    "paragraphs": [
+      "Hello! I'm Kevin Loving, an AI and data systems engineer focused on building autonomous multi-agent systems and scalable machine learning infrastructure.",
+      "My work sits at the intersection of machine learning, distributed systems, and real-world automation. I build AI systems that can reason, interact with tools, and operate in persistent environments.",
+      "I recently completed a Master of Science in Information Management with a Data Science specialization at the University of Washington, where I focused on machine learning systems, agentic AI architectures, and large-scale data analysis.",
+      "This site highlights my research, engineering projects, and professional experience across AI startups, large-scale enterprise systems, and data-driven product development."
+    ],
+    "links": [
+      {
+        "label": "Resume",
+        "url": "Kevin_Loving_Resume.pdf"
+      },
+      {
+        "label": "LinkedIn",
+        "url": "https://linkedin.com/in/kevin-loving"
+      }
+    ],
+    "counter": "👁️ Visitors: 0001337"
+  },
+  "skills": {
+    "title": "Technical Skills",
+    "categories": [
+      {
+        "name": "Machine Learning & AI",
+        "items": [
+          "Machine Learning",
+          "Statistical Modeling",
+          "Agentic AI Systems",
+          "Experiment Design",
+          "Reinforcement Learning Concepts",
+          "LLM Tool Use and Planning"
+        ]
+      },
+      {
+        "name": "Programming Languages",
+        "items": [
+          "Python",
+          "SQL",
+          "C++",
+          "TypeScript",
+          "VBA"
+        ]
+      },
+      {
+        "name": "ML / AI Frameworks",
+        "items": [
+          "PyTorch",
+          "TensorFlow",
+          "Hugging Face Transformers",
+          "sentence-transformers",
+          "scikit-learn"
+        ]
+      },
+      {
+        "name": "Data & Analysis",
+        "items": [
+          "Pandas",
+          "NumPy",
+          "Matplotlib",
+          "Seaborn"
+        ]
+      },
+      {
+        "name": "Systems & Infrastructure",
+        "items": [
+          "Docker",
+          "Kubernetes",
+          "PostgreSQL",
+          "FastAPI",
+          "AWS",
+          "Linux",
+          "Git"
+        ]
+      }
+    ]
+  },
+
+  "experience": {
+    "title": "Professional Experience",
+    "roles": [
+      {
+        "position": "Founder & CEO — Guildmaster AI",
+        "location": "Seattle, WA",
+        "duration": "2024 - Present",
+        "highlights": [
+          "Designed and implemented a distributed multi-agent AI system enabling autonomous decision making and tool use in persistent environments.",
+          "Built scalable containerized microservices (Docker, Kubernetes, Kafka) supporting agent orchestration, model inference, and real-time logging.",
+          "Developed Python-based inference and data pipelines to capture agent state, actions, and outcomes for analysis and training.",
+          "Created control loops and agent tooling interfaces allowing models to safely call external tools and reason over their outputs.",
+          "Defined technical roadmap translating experimental agentic AI research into production-ready services."
+        ]
+      },
+      {
+        "position": "Owner — Loving Repair & Restoration",
+        "location": "Seattle, WA",
+        "duration": "May 2024 - Present",
+        "highlights": [
+          "Founded and operate a construction and restoration business managing projects, budgets, scheduling, and client communication end-to-end."
+        ]
+      },
+      {
+        "position": "Scenic Artist & Set Builder — Multiple Theater Companies",
+        "location": "Seattle, WA",
+        "duration": "Nov 2022 - Present",
+        "highlights": [
+          "Delivered complex production builds across multiple theater organizations while coordinating cross-team project timelines.",
+          "Reduced material costs through resource sharing and improved build planning."
+        ]
+      },
+      {
+        "position": "Stream Manager — Hula Pie",
+        "location": "Seattle, WA",
+        "duration": "Oct 2020 - Aug 2021",
+        "highlights": [
+          "Applied data-driven experimentation and dashboarding to optimize content and monetization strategy.",
+          "Increased average viewership by 457% and developed profitable sponsorship and merchandise partnerships."
+        ]
+      },
+      {
+        "position": "Co-Founder — Plumist",
+        "location": "Seattle, WA",
+        "duration": "Sep 2019 - Oct 2020",
+        "highlights": [
+          "Developed machine learning models for demand forecasting and dynamic vendor pricing.",
+          "Designed analytics pipelines and data architecture supporting inventory optimization and investment decisions.",
+          "Presented technical product strategy to secure partnerships and pre-seed funding."
+        ]
+      },
+      {
+        "position": "Product Analyst — Amazon",
+        "location": "Seattle, WA",
+        "duration": "Oct 2017 - Sep 2019",
+        "highlights": [
+          "Led 50+ global HR platform releases and migrations across UKG and Salesforce systems.",
+          "Authored technical specifications and migration roadmaps that rescued a failing system transition.",
+          "Identified payroll scalability risks and delivered a redesigned workflow reducing manual processing by 77%.",
+          "Built ML-assisted tooling that auto-generated UAT test cases, reducing case authoring time by up to 90%.",
+          "Standardized documentation and led workshops improving technical writing and project delivery quality."
+        ]
+      },
+      {
+        "position": "Product Analyst — Amazon (TRC Staffing)",
+        "location": "Seattle, WA",
+        "duration": "Nov 2016 - Oct 2017",
+        "highlights": [
+          "Led global UAT testing for 20+ retail product releases supporting Amazon Go and Amazon Books launches.",
+          "Delivered testing cycles 28% ahead of schedule through improved coordination and planning.",
+          "Developed VBA automation reducing UAT preparation time by 87%.",
+          "Created self-service documentation that reduced duplicate support requests by over 90%."
+        ]
+      },
+      {
+        "position": "UX Researcher Intern — Maritz",
+        "location": "St. Louis, MO",
+        "duration": "May 2015 - Dec 2015",
+        "highlights": [
+          "Designed wireframes and conducted usability experiments for enterprise SaaS platforms.",
+          "Translated qualitative and quantitative research insights into shipped product features."
+        ]
+      }
+    ]
+  },
+
+  "education": {
+    "title": "Education",
+    "schools": [
+      {
+        "institution": "University of Washington",
+        "degree": "Master of Science in Information Management",
+        "specialization": "Data Science",
+        "year": "2025",
+        "location": "Seattle, WA"
+      },
+      {
+        "institution": "Webster University",
+        "degree": "Bachelor of Arts in Political Science",
+        "minor": "Computer Science",
+        "year": "2016",
+        "location": "St. Louis, MO"
+      }
+    ]
+  },
+
+  "contact": {
+    "title": "Contact",
+    "paragraphs": [
+      "I'm interested in research collaborations, PhD opportunities, and roles focused on machine learning systems, AI infrastructure, and autonomous agents."
+    ],
+    "links": [
+      {
+        "label": "Email",
+        "url": "mailto:kmloving@live.com"
+      },
+      {
+        "label": "Resume PDF",
+        "url": "Kevin_Loving_Resume.pdf"
+      },
+      {
+        "label": "LinkedIn",
+        "url": "https://linkedin.com/in/kevin-loving"
+      }
+    ]
+  }
+}
