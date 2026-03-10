@@ -1,0 +1,15 @@
+{
+  "writings": [
+    {
+      "slug": "kantian-agents",
+      "category": "philosophy",
+      "type": "Blog Post",
+      "title": "Kant's Rational Ideal and the Ethics of Artificial Intelligence",
+      "meta": "An exploration of how Kantian ethics can inform the design and behavior of AI agents.",
+      "summary": "A philosophical essay on how Kant's concept of rational agency can guide the development of ethical AI systems that respect autonomy, dignity, and moral law. The article discusses the implications of Kantian ethics for AI decision-making, responsibility, and the treatment of sentient beings. It argues that designing AI agents with Kantian principles can lead to more trustworthy, fair, and human-aligned technologies. Started as a a term paper for IMT IMT 550: Policy and Ethics in Information Management at the University of Washington.",
+      "pdf_url": "../writings-pdfs/what-makes-an-ai-agent-useful.pdf"
+    },
+    {
+    }
+  ]
+}

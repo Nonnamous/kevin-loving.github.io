@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kevin Loving - Projects</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <div class="navbar">
+        <table>
+            <tr>
+                <td><a href="../index.html">home</a></td>
+                <td><a href="#ongoing">ongoing projects</a></td>
+                <td><a href="#completed">completed projects</a></td>
+                <td><a href="#future">future directions</a></td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="container">
+        <table class="section-table">
+            <tr>
+                <td>
+                    <h1>projects</h1>
+                    <p class="tagline">Research prototypes, papers-in-progress, and longer-term investigations across AI systems, product thinking, and decision making.</p>
+                </td>
+            </tr>
+        </table>
+
+        <div class="marquee">
+            <div class="marquee-content">Ongoing experiments, completed work, and future research directions with clear paths to papers, code, and demos.</div>
+        </div>
+
+        <table class="section-table" id="ongoing">
+            <tr>
+                <td>
+                    <h2>ongoing projects</h2>
+                    <div class="project-grid" id="ongoing-grid"></div>
+                </td>
+            </tr>
+        </table>
+
+        <table class="section-table" id="completed">
+            <tr>
+                <td>
+                    <h2>completed projects</h2>
+                    <div class="project-grid" id="completed-grid"></div>
+                </td>
+            </tr>
+        </table>
+
+        <table class="section-table" id="future">
+            <tr>
+                <td>
+                    <h2>future research directions</h2>
+                    <div class="project-grid" id="future-grid"></div>
+                </td>
+            </tr>
+        </table>
+
+        <table class="section-table" id="details">
+            <tr>
+                <td>
+                    <h2>project details</h2>
+                    <div id="project-details-list"></div>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <script>
+        const statusSections = {
+            ongoing: {
+                gridId: 'ongoing-grid',
+                ctaLabel: 'View details'
+            },
+            completed: {
+                gridId: 'completed-grid',
+                ctaLabel: 'Review outcomes'
+            },
+            future: {
+                gridId: 'future-grid',
+                ctaLabel: 'See direction'
+            }
+        };
+
+        function createTagList(tags) {
+            const tagList = document.createElement('div');
+            tagList.className = 'tag-list';
+
+            tags.forEach((tag) => {
+                const pill = document.createElement('span');
+                pill.className = 'tag-pill';
+                pill.textContent = tag;
+                tagList.appendChild(pill);
+            });
+
+            return tagList;
+        }
+
+        function appendProjectLinks(container, links) {
+            const linkRow = document.createElement('p');
+            linkRow.className = 'link-list';
+
+            const detailLink = document.createElement('a');
+            detailLink.href = `#${links.slug}`;
+            detailLink.textContent = 'Read more';
+            linkRow.appendChild(detailLink);
+
+            links.items.forEach((link) => {
+                const anchor = document.createElement('a');
+                anchor.href = link.url;
+                anchor.textContent = link.label;
+                linkRow.appendChild(anchor);
+            });
+
+            container.appendChild(linkRow);
+        }
+
+        function renderProjectCards(projects) {
+            projects.forEach((project) => {
+                const sectionConfig = statusSections[project.status];
+                const grid = document.getElementById(sectionConfig.gridId);
+
+                const card = document.createElement('div');
+                card.className = 'project-card';
+
+                const topRow = document.createElement('div');
+                topRow.className = 'project-card-top';
+
+                const status = document.createElement('span');
+                status.className = `project-status status-${project.status}`;
+                status.textContent = project.status_label;
+                topRow.appendChild(status);
+
+                const category = document.createElement('span');
+                category.className = 'project-category';
+                category.textContent = project.category;
+                topRow.appendChild(category);
+
+                card.appendChild(topRow);
+
+                const title = document.createElement('h3');
+                title.textContent = project.title;
+                card.appendChild(title);
+
+                const meta = document.createElement('p');
+                meta.className = 'meta';
+                meta.textContent = project.meta;
+                card.appendChild(meta);
+
+                const summary = document.createElement('p');
+                summary.textContent = project.summary;
+                card.appendChild(summary);
+
+                card.appendChild(createTagList(project.tags));
+
+                const cta = document.createElement('p');
+                cta.className = 'project-cta';
+
+                const ctaLink = document.createElement('a');
+                ctaLink.href = `#${project.slug}`;
+                ctaLink.textContent = sectionConfig.ctaLabel;
+                cta.className = 'link-list';
+                cta.appendChild(ctaLink);
+                card.appendChild(cta);
+
+                grid.appendChild(card);
+            });
+        }
+
+        function renderProjectDetails(projects) {
+            const details = document.getElementById('project-details-list');
+
+            projects.forEach((project) => {
+                const section = document.createElement('div');
+                section.className = 'full-text';
+                section.id = project.slug;
+
+                const title = document.createElement('h3');
+                title.textContent = project.title;
+                section.appendChild(title);
+
+                const detailMeta = document.createElement('p');
+                detailMeta.className = 'meta';
+                detailMeta.textContent = `${project.status_label} | ${project.category} | ${project.timeline}`;
+                section.appendChild(detailMeta);
+
+                const overview = document.createElement('p');
+                overview.textContent = project.description;
+                section.appendChild(overview);
+
+                const focus = document.createElement('p');
+                focus.innerHTML = `<strong>Current focus:</strong> ${project.focus}`;
+                section.appendChild(focus);
+
+                const outcomes = document.createElement('p');
+                outcomes.innerHTML = `<strong>Why it matters:</strong> ${project.impact}`;
+                section.appendChild(outcomes);
+
+                section.appendChild(createTagList(project.tags));
+                appendProjectLinks(section, { slug: project.slug, items: project.links });
+
+                details.appendChild(section);
+            });
+        }
+
+        fetch('./projects.json')
+            .then((response) => response.json())
+            .then((data) => {
+                renderProjectCards(data.projects);
+                renderProjectDetails(data.projects);
+            })
+            .catch((error) => {
+                console.error('Failed to load projects.json', error);
+            });
+
+        const marqueeContent = document.querySelector('.marquee-content');
+        if (marqueeContent) {
+            marqueeContent.innerHTML = marqueeContent.innerHTML + ' ' + marqueeContent.innerHTML;
+        }
+    </script>
+</body>
+</html>

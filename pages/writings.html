@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kevin Loving - Writings</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <div class="navbar">
+        <table>
+            <tr>
+                <td><a href="../index.html">home</a></td>
+                <td><a href="#featured">featured pieces</a></td>
+                <td><a href="#full-text">full text</a></td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="container">
+        <table class="section-table">
+            <tr>
+                <td>
+                    <h1>writings</h1>
+                    <p class="tagline">Blog posts, articles, and papers on AI systems, product thinking, and technical execution.</p>
+                </td>
+            </tr>
+        </table>
+
+        <div class="marquee">
+            <div class="marquee-content">Selected writing on autonomous systems, machine learning infrastructure, and practical product strategy.</div>
+        </div>
+
+        <table class="section-table" id="featured">
+            <tr>
+                <td>
+                    <h2>featured pieces</h2>
+                    <div class="writing-grid" id="writing-grid"></div>
+                </td>
+            </tr>
+        </table>
+
+        <table class="section-table" id="full-text">
+            <tr>
+                <td>
+                    <h2>full text</h2>
+                    <div id="full-text-list"></div>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <script>
+        function appendParagraphs(container, paragraphs) {
+            paragraphs.forEach((text) => {
+                const p = document.createElement('p');
+                p.textContent = text;
+                container.appendChild(p);
+            });
+        }
+
+        function renderFeatured(writings) {
+            const grid = document.getElementById('writing-grid');
+
+            writings.forEach((writing) => {
+                const card = document.createElement('div');
+                card.className = 'writing-card';
+
+                const type = document.createElement('div');
+                type.className = 'writing-type';
+                type.textContent = writing.type;
+                card.appendChild(type);
+
+                const title = document.createElement('h3');
+                title.textContent = writing.title;
+                card.appendChild(title);
+
+                const meta = document.createElement('p');
+                meta.className = 'meta';
+                meta.textContent = writing.meta;
+                card.appendChild(meta);
+
+                const summary = document.createElement('p');
+                summary.textContent = writing.summary;
+                card.appendChild(summary);
+
+                const links = document.createElement('p');
+                links.className = 'link-list';
+
+                const fullTextLink = document.createElement('a');
+                fullTextLink.href = `#${writing.slug}`;
+                fullTextLink.textContent = 'Full text';
+                links.appendChild(fullTextLink);
+
+                if (writing.pdf_url) {
+                    const pdfLink = document.createElement('a');
+                    pdfLink.href = writing.pdf_url;
+                    pdfLink.textContent = 'PDF';
+                    links.appendChild(pdfLink);
+                }
+
+                card.appendChild(links);
+                grid.appendChild(card);
+            });
+        }
+
+        function renderFullText(writings) {
+            const fullTextList = document.getElementById('full-text-list');
+
+            writings.forEach((writing) => {
+                const section = document.createElement('div');
+                section.className = 'full-text';
+                section.id = writing.slug;
+
+                const title = document.createElement('h3');
+                title.textContent = writing.title;
+                section.appendChild(title);
+
+                appendParagraphs(section, writing.full_text);
+
+                const links = document.createElement('p');
+                links.className = 'link-list';
+
+                const topLink = document.createElement('a');
+                topLink.href = '#featured';
+                topLink.textContent = 'Back to summaries';
+                links.appendChild(topLink);
+
+                if (writing.pdf_url) {
+                    const pdfLink = document.createElement('a');
+                    pdfLink.href = writing.pdf_url;
+                    pdfLink.textContent = 'Open PDF';
+                    links.appendChild(pdfLink);
+                } else {
+                    const note = document.createElement('span');
+                    note.className = 'status-note';
+                    note.textContent = 'PDF slot reserved in writings-pdfs/';
+                    links.appendChild(note);
+                }
+
+                section.appendChild(links);
+                fullTextList.appendChild(section);
+            });
+        }
+
+        fetch('./writings.json')
+            .then((response) => response.json())
+            .then((data) => {
+                renderFeatured(data.writings);
+                renderFullText(data.writings);
+            })
+            .catch((error) => {
+                console.error('Failed to load writings.json', error);
+            });
+
+        const marqueeContent = document.querySelector('.marquee-content');
+        if (marqueeContent) {
+            marqueeContent.innerHTML = marqueeContent.innerHTML + ' ' + marqueeContent.innerHTML;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+{
+  "projects": [
+    {
+      "slug": "agent-evals-lab",
+      "title": "Agent Evaluation Lab",
+      "status": "ongoing",
+      "status_label": "Ongoing",
+      "category": "AI Evaluation",
+      "meta": "Research sandbox for measuring planning quality, reliability, and tool use in autonomous systems.",
+      "summary": "A placeholder project focused on designing practical evals for agentic workflows, including task completion quality, recovery from failure, and robustness under ambiguous instructions.",
+      "description": "This stub project explores how to evaluate autonomous agents in environments that resemble real product and research work. The current direction is to build lightweight benchmarks, observable traces, and failure taxonomies that make system behavior easier to compare over time.",
+      "timeline": "2026 - Present",
+      "focus": "Defining benchmark tasks, scoring criteria, and trace inspection tools for iterative agent improvement.",
+      "impact": "The long-term goal is to make agent performance legible enough for both research iteration and production deployment decisions.",
+      "tags": ["agents", "evaluation", "tool use"],
+      "links": [
+        { "label": "Paper", "url": "#" },
+        { "label": "Code", "url": "#" },
+        { "label": "Demo", "url": "#" }
+      ]
+    }
+  ]
+}
