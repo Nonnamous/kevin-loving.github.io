@@ -11,113 +11,101 @@
     <div class="navbar">
         <table>
             <tr>
-                <td><a href="#about">about</a></td>
-                <td><a href="#current-work">current work</a></td>
-                <td><a href="#interests">interests</a></td>
-                <td><a href="#opportunities">open to</a></td>
-                <td><a href="#links">links</a></td>
-                <td><a href="#pages">pages</a></td>
-                <td><a href="#contact">contact</a></td>
+                <td><a href="index.html">home</a></td>
+                <td><a href="pages/writings.html">writings</a></td>
+                <td><a href="pages/projects.html">projects</a></td>
             </tr>
         </table>
     </div>
 
     <!-- Main Container -->
     <div class="container">
-        <!-- Header -->
-        <table class="header-table">
-            <tr>
-                <td class="header-left">
-                    <h1>KEVIN LOVING</h1>
-                    <p class="tagline">Welcome to my personal website!</p>
-                    <p id="profile-title"></p>
-                    <p id="profile-location"></p>
-                </td>
-                <td class="headshot-cell">
-                    <div class="headshot">
-                        <img src="images/headshot.jpg" alt="Kevin Loving">
-                    </div>
-                </td>
-            </tr>
-        </table>
+        <div class="page-shell">
+            <aside id="site-sidebar" data-base-path="."></aside>
 
-        <!-- Marquee -->
-        <div class="marquee">
-            <div class="marquee-content">
-                ★★★ WELCOME TO MY WEBSITE ★★★ BEST VIEWED IN NETSCAPE NAVIGATOR 4.0 OR INTERNET EXPLORER 5.5 ★★★ 
-                NOW ACCEPTING OPPORTUNITIES ★★★ OPTIMIZED FOR 800x600 RESOLUTION ★★★
+            <div class="content-column">
+                <!-- Header -->
+                <table class="header-table">
+                    <tr>
+                        <td class="header-left">
+                            <h1>KEVIN LOVING</h1>
+                            <p class="tagline">Welcome to my personal website!</p>
+                            <p id="profile-title"></p>
+                            <p id="profile-location"></p>
+                        </td>
+                        <td class="headshot-cell">
+                            <div class="headshot">
+                                <img src="images/headshot.jpg" alt="Kevin Loving">
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+
+                <!-- Marquee -->
+                <div class="marquee">
+                    <div class="marquee-content">
+                        ★★★ WELCOME TO MY WEBSITE ★★★ BEST VIEWED IN NETSCAPE NAVIGATOR 4.0 OR INTERNET EXPLORER 5.5 ★★★ 
+                        NOW ACCEPTING OPPORTUNITIES ★★★ OPTIMIZED FOR 800x600 RESOLUTION ★★★
+                    </div>
+                </div>
+
+                <!-- About Section -->
+                <table class="section-table" id="about">
+                    <tr>
+                        <td></td>
+                    </tr>
+                </table>
+
+                <div class="flavor-text" aria-hidden="true">wow!! signal boost incoming...</div>
+
+                <!-- Current Work Section -->
+                <table class="section-table" id="current-work">
+                    <tr>
+                        <td></td>
+                    </tr>
+                </table>
+
+                <div class="flavor-text" aria-hidden="true">behold: active projects in motion</div>
+
+                <!-- Interests Section -->
+                <table class="section-table" id="interests">
+                    <tr>
+                        <td></td>
+                    </tr>
+                </table>
+
+                <div class="flavor-text" aria-hidden="true">neat!! research rabbit holes ahead</div>
+
+                <!-- Opportunities Section -->
+                <table class="section-table" id="opportunities">
+                    <tr>
+                        <td></td>
+                    </tr>
+                </table>
+
+                <!-- Construction Notice -->
+                <div class="construction">
+                    SITE UNDER CONSTRUCTION - UPDATES COMING SOON
+                </div>
+
+                <!-- Footer -->
+                <table class="footer-table">
+                    <tr>
+                        <td>
+                            <div id="footer-counter"></div>
+                            <p>© 2026 Kevin Loving | Last Updated: February 2026</p>
+                            <p>Best viewed at 800x600 resolution</p>
+                            <p class="footer-small">
+                                Made with HTML and CSS • No Flash Required
+                            </p>
+                        </td>
+                    </tr>
+                </table>
             </div>
         </div>
-
-        <!-- About Section -->
-        <table class="section-table" id="about">
-            <tr>
-                <td></td>
-            </tr>
-        </table>
-
-        <!-- Current Work Section -->
-        <table class="section-table" id="current-work">
-            <tr>
-                <td></td>
-            </tr>
-        </table>
-
-        <!-- Interests Section -->
-        <table class="section-table" id="interests">
-            <tr>
-                <td></td>
-            </tr>
-        </table>
-
-        <!-- Opportunities Section -->
-        <table class="section-table" id="opportunities">
-            <tr>
-                <td></td>
-            </tr>
-        </table>
-
-        <!-- Links Section -->
-        <table class="section-table" id="links">
-            <tr>
-                <td></td>
-            </tr>
-        </table>
-
-        <!-- Pages Section -->
-        <table class="section-table" id="pages">
-            <tr>
-                <td></td>
-            </tr>
-        </table>
-
-        <!-- Construction Notice -->
-        <div class="construction">
-            SITE UNDER CONSTRUCTION - UPDATES COMING SOON
-        </div>
-
-        <!-- Contact Section -->
-        <table class="section-table" id="contact">
-            <tr>
-                <td></td>
-            </tr>
-        </table>
-
-        <!-- Footer -->
-        <table class="footer-table">
-            <tr>
-                <td>
-                    <div id="footer-counter"></div>
-                    <p>© 2026 Kevin Loving | Last Updated: February 2026</p>
-                    <p>Best viewed at 800x600 resolution</p>
-                    <p class="footer-small">
-                        Made with HTML and CSS • No Flash Required
-                    </p>
-                </td>
-            </tr>
-        </table>
     </div>
 
+    <script src="shared/sidebar.js"></script>
     <script>
         function createList(items) {
             const list = document.createElement('ul');
@@ -176,50 +164,6 @@
             cell.appendChild(createList(data[key]));
         }
 
-        function createLinkButton(link) {
-            const anchor = document.createElement('a');
-            anchor.href = link.url;
-            anchor.className = 'button';
-            anchor.textContent = link.label;
-
-            const isExternal = /^https?:\/\//.test(link.url);
-            if (isExternal) {
-                anchor.target = '_blank';
-                anchor.rel = 'noreferrer';
-            }
-
-            return anchor;
-        }
-
-        function renderLinkSection(section, data) {
-            const cell = section.querySelector('td');
-            cell.innerHTML = `<h2>${data.title}</h2>`;
-
-            const linkList = document.createElement('div');
-            linkList.className = 'button-list';
-
-            data.items.forEach((link) => linkList.appendChild(createLinkButton(link)));
-
-            cell.appendChild(linkList);
-        }
-
-        function renderContact(section, data) {
-            const cell = section.querySelector('td');
-            cell.innerHTML = `<h2>${data.title}</h2>`;
-
-            const message = document.createElement('p');
-            message.textContent = data.message;
-            cell.appendChild(message);
-
-            const linkList = document.createElement('div');
-            linkList.className = 'button-list';
-            linkList.appendChild(createLinkButton({
-                label: data.email,
-                url: `mailto:${data.email}`
-            }));
-            cell.appendChild(linkList);
-        }
-
         function renderFooter(data) {
             const counter = document.createElement('div');
             counter.className = 'counter';
@@ -257,9 +201,6 @@
                 renderItemList(document.getElementById('current-work'), data.current_work, 'items');
                 renderListSection(document.getElementById('interests'), data.interests, 'areas');
                 renderListSection(document.getElementById('opportunities'), data.opportunities, 'items');
-                renderLinkSection(document.getElementById('links'), data.links);
-                renderLinkSection(document.getElementById('pages'), data.pages);
-                renderContact(document.getElementById('contact'), data.contact);
                 renderFooter(data.footer);
             })
             .catch((error) => {

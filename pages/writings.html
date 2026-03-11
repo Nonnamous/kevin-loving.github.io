@@ -11,45 +11,52 @@
         <table>
             <tr>
                 <td><a href="../index.html">home</a></td>
-                <td><a href="#featured">featured pieces</a></td>
-                <td><a href="#full-text">full text</a></td>
+                <td><a href="writings.html">writings</a></td>
+                <td><a href="projects.html">projects</a></td>
             </tr>
         </table>
     </div>
 
     <div class="container">
-        <table class="section-table">
-            <tr>
-                <td>
-                    <h1>writings</h1>
-                    <p class="tagline">Blog posts, articles, and papers on AI systems, product thinking, and technical execution.</p>
-                </td>
-            </tr>
-        </table>
+        <div class="page-shell">
+            <aside id="site-sidebar" data-base-path=".."></aside>
 
-        <div class="marquee">
-            <div class="marquee-content">Selected writing on autonomous systems, machine learning infrastructure, and practical product strategy.</div>
+            <div class="content-column">
+                <table class="section-table">
+                    <tr>
+                        <td>
+                            <h1>writings</h1>
+                            <p class="tagline">Blog posts, articles, and papers on AI systems, product thinking, and technical execution.</p>
+                        </td>
+                    </tr>
+                </table>
+
+                <div class="marquee">
+                    <div class="marquee-content">Selected writing on autonomous systems, machine learning infrastructure, and practical product strategy.</div>
+                </div>
+
+                <table class="section-table" id="featured">
+                    <tr>
+                        <td>
+                            <h2>featured pieces</h2>
+                            <div class="writing-grid" id="writing-grid"></div>
+                        </td>
+                    </tr>
+                </table>
+
+                <table class="section-table" id="full-text">
+                    <tr>
+                        <td>
+                            <h2>full text</h2>
+                            <div id="full-text-list"></div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
         </div>
-
-        <table class="section-table" id="featured">
-            <tr>
-                <td>
-                    <h2>featured pieces</h2>
-                    <div class="writing-grid" id="writing-grid"></div>
-                </td>
-            </tr>
-        </table>
-
-        <table class="section-table" id="full-text">
-            <tr>
-                <td>
-                    <h2>full text</h2>
-                    <div id="full-text-list"></div>
-                </td>
-            </tr>
-        </table>
     </div>
 
+    <script src="../shared/sidebar.js"></script>
     <script>
         function appendParagraphs(container, paragraphs) {
             paragraphs.forEach((text) => {

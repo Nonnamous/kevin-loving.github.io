@@ -11,64 +11,70 @@
         <table>
             <tr>
                 <td><a href="../index.html">home</a></td>
-                <td><a href="#ongoing">ongoing projects</a></td>
-                <td><a href="#completed">completed projects</a></td>
-                <td><a href="#future">future directions</a></td>
+                <td><a href="writings.html">writings</a></td>
+                <td><a href="projects.html">projects</a></td>
             </tr>
         </table>
     </div>
 
     <div class="container">
-        <table class="section-table">
-            <tr>
-                <td>
-                    <h1>projects</h1>
-                    <p class="tagline">Research prototypes, papers-in-progress, and longer-term investigations across AI systems, product thinking, and decision making.</p>
-                </td>
-            </tr>
-        </table>
+        <div class="page-shell">
+            <aside id="site-sidebar" data-base-path=".."></aside>
 
-        <div class="marquee">
-            <div class="marquee-content">Ongoing experiments, completed work, and future research directions with clear paths to papers, code, and demos.</div>
+            <div class="content-column">
+                <table class="section-table">
+                    <tr>
+                        <td>
+                            <h1>projects</h1>
+                            <p class="tagline">Research prototypes, papers-in-progress, and longer-term investigations across AI systems, product thinking, and decision making.</p>
+                        </td>
+                    </tr>
+                </table>
+
+                <div class="marquee">
+                    <div class="marquee-content">Ongoing experiments, completed work, and future research directions with clear paths to papers, code, and demos.</div>
+                </div>
+
+                <table class="section-table" id="ongoing">
+                    <tr>
+                        <td>
+                            <h2>ongoing projects</h2>
+                            <div class="project-grid" id="ongoing-grid"></div>
+                        </td>
+                    </tr>
+                </table>
+
+                <table class="section-table" id="completed">
+                    <tr>
+                        <td>
+                            <h2>completed projects</h2>
+                            <div class="project-grid" id="completed-grid"></div>
+                        </td>
+                    </tr>
+                </table>
+
+                <table class="section-table" id="future">
+                    <tr>
+                        <td>
+                            <h2>future research directions</h2>
+                            <div class="project-grid" id="future-grid"></div>
+                        </td>
+                    </tr>
+                </table>
+
+                <table class="section-table" id="details">
+                    <tr>
+                        <td>
+                            <h2>project details</h2>
+                            <div id="project-details-list"></div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
         </div>
-
-        <table class="section-table" id="ongoing">
-            <tr>
-                <td>
-                    <h2>ongoing projects</h2>
-                    <div class="project-grid" id="ongoing-grid"></div>
-                </td>
-            </tr>
-        </table>
-
-        <table class="section-table" id="completed">
-            <tr>
-                <td>
-                    <h2>completed projects</h2>
-                    <div class="project-grid" id="completed-grid"></div>
-                </td>
-            </tr>
-        </table>
-
-        <table class="section-table" id="future">
-            <tr>
-                <td>
-                    <h2>future research directions</h2>
-                    <div class="project-grid" id="future-grid"></div>
-                </td>
-            </tr>
-        </table>
-
-        <table class="section-table" id="details">
-            <tr>
-                <td>
-                    <h2>project details</h2>
-                    <div id="project-details-list"></div>
-                </td>
-            </tr>
-        </table>
     </div>
 
+    <script src="../shared/sidebar.js"></script>
     <script>
         const statusSections = {
             ongoing: {
